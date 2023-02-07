@@ -42,7 +42,9 @@ def get_rider_websites(tin_of_soup):
     """
 
 def get_rider_info(tin_of_soup):
+    # function to get rider info
     var = tin_of_soup
+
 
 def get_team_list():
     #go to basically any pcs page and get the team list:

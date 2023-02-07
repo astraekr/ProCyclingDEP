@@ -77,6 +77,10 @@ def get_soup(address_str):
     page = requests.get(address_str)
     return bs(page.content)
 
+def get_and_save_raw_soup(address):
+    #function to save the raw scraped pages as reference
+    return succes
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     addr = 'https://www.procyclingstats.com/rider/wout-van-aert'

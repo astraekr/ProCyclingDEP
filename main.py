@@ -4,6 +4,7 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 from bs4 import BeautifulSoup as bs
 import requests
+import os
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -75,16 +76,29 @@ def get_team_list():
 def get_soup(address_str):
 
     page = requests.get(address_str)
+    print(type(page))
+    print(page)
     return bs(page.content)
 
-def get_and_save_raw_soup(address):
+def get_and_save_raw_html_soup(address_str, dir):
     #function to save the raw scraped pages as reference
-    return succes
+    file_name = address_str.split('/')[-1] + '.txt'
+    page = requests.get(address_str)
+    page.encoding = page.apparent_encoding
+    print(page.apparent_encoding)
+    #print(os.listdir(dir))
+    page.encoding = "utf-8"
+    with open(os.path.join(dir, file_name), 'w', encoding="utf-8") as fd:
+        fd.write(page.text)
+    success = True
+    return success
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    data_dir = "../ProCyclingDEP_Data/Riders/"
     addr = 'https://www.procyclingstats.com/rider/wout-van-aert'
     soup = get_soup(addr)
+    stat = get_and_save_raw_html_soup(addr, data_dir)
     print_hi('PyCharm')
     #init_scrape_site(address_str)
     get_rider_websites(soup)

@@ -34,8 +34,10 @@ MANIFEST
 *.spec
 
 # IDE
-.idea
-.idea/
+# .idea
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf
 
 # Installer logs
 pip-log.txt

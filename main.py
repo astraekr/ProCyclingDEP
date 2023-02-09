@@ -68,6 +68,22 @@ def get_team_list(root_page_addr: str) -> list:
     return team_list
 
 
+def get_team_list_test():
+    # chat-gpt's unit test for this!
+    team_list = get_team_list('https://www.pcsoweb.com/g5-bin/client.cgi?G5genie=8&school_id=1')
+    assert len(team_list) == 10
+    assert 'Boys Varsity' in team_list
+    assert 'Girls Varsity' in team_list
+    assert 'Boys JV' in team_list
+    assert 'Girls JV' in team_list
+    assert 'Boys Freshman' in team_list
+    assert 'Girls Freshman' in team_list
+    assert 'Boys Middle School' in team_list
+    assert 'Girls Middle School' in team_list
+    assert 'Boys Elementary' in team_list
+    assert 'Girls Elementary' in team_list
+
+
 def get_soup(address_str):
 
     page = requests.get(address_str)
